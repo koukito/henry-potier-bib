@@ -11,11 +11,12 @@
 
 1.  **Installer les dependences**
 
-    Utiliser la version 14 de nodeJs
+    Utiliser la version 14 de nodeJs puis installer les dépendences
 
     ```shell
 
      nvm use
+     npm install
 
     ```
 
@@ -40,3 +41,11 @@ le site va se lancer sur http://localhost:8000
     ```
 
     le site va se lancer sur http://localhost:9000 cette fois ci.
+
+5.  Pour lancer les test unitaires:
+
+    ```shell
+
+     npm run test
+
+    ```
