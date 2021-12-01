@@ -1,32 +1,57 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import { Flex, Grid, Text, Box, Input } from 'theme-ui';
 import { useBookStore } from '../Context/BookStoreContext';
+import {
+  Navbar,
+  Container,
+  Nav,
+  Button,
+  Form,
+  FormControl
+} from 'react-bootstrap';
+import './Navigation.scss';
 
 export const Navigation = () => {
   const { state, dispatch } = useBookStore();
   const nbrOfCartItems = state.cartItems?.length ?? 0;
 
-  //const [searchTerm, setSearchTerm] = React.useState('');
   const handleChangeInput = (event: any) => {
     dispatch({ type: 'SET_SEARCH_TERM', value: event.target.value });
   };
   return (
-    <Flex as="nav" sx={{ justifyContent: 'space-between' }}>
-      <Flex>
-        <Grid columns={2}>
-          <Link to="/books">Books</Link>
-          <Input onChange={handleChangeInput} value={state.searchTerm} />
-        </Grid>
-      </Flex>
-      <Box sx={{ display: 'flex', placeItems: 'center' }}>
-        <Link to="/cart">
-          <Flex>
-            <Text marginRight={'s'}>{nbrOfCartItems}</Text>
-            <img src="https://img.icons8.com/material-outlined/24/000000/fast-cart.png" />
-          </Flex>
-        </Link>
-      </Box>
-    </Flex>
+    <Navbar className="navigation__container" bg="light" expand="lg">
+      <Container fluid>
+        <Navbar.Brand href="#">Books store</Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="me-auto my-2 my-lg-0"
+            style={{ maxHeight: '100px' }}
+            navbarScroll
+          >
+            <Nav.Item>
+              <Link className="nav-link" activeClassName="active" to="/books">
+                Books
+              </Link>
+            </Nav.Item>
+          </Nav>
+          <Form className="d-flex">
+            <FormControl
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+              onChange={handleChangeInput}
+            />
+          </Form>
+          <Nav.Item>
+            <Link className="nav-link" activeClassName="active" to="/cart">
+              {nbrOfCartItems}
+              <img src="https://img.icons8.com/material-outlined/24/000000/fast-cart.png" />
+            </Link>
+          </Nav.Item>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
