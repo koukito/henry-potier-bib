@@ -5,3 +5,11 @@ export interface Book {
   cover: string;
   synopsis: Array<string>;
 }
+
+export interface Offer {
+  type: OfferType;
+  value: number;
+  sliceValue?: number;
+}
+
+export type OfferType = 'percentage' | 'minus' | 'slice';
