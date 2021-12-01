@@ -1,8 +1,11 @@
 import React, { useContext, useReducer, useEffect } from 'react';
 import { Book } from '../models/books.models';
 import { BooksStoreState, Dispatch, Action } from '../models/store.models';
+import { localStorageMock } from './LocalStorageMock';
 
 const LOCAL_STORAGE_KEY = 'books-lib';
+const localStorage =
+  typeof window !== 'undefined' ? window.localStorage : localStorageMock;
 
 const BookStoreContext = React.createContext<
   { state: BooksStoreState; dispatch: Dispatch } | undefined
@@ -12,7 +15,7 @@ const initalState: BooksStoreState = {
   cartItems: [],
   searchTerm: ''
 };
-function bookStoreReducer(state: BooksStoreState, action: Action | any) {
+function bookStoreReducer(state: BooksStoreState, action: Action) {
   switch (action.type) {
     case 'ADD_BOOK_CART': {
       return { ...state, cartItems: [...state.cartItems, action.value] };
@@ -31,8 +34,14 @@ function bookStoreReducer(state: BooksStoreState, action: Action | any) {
         searchTerm: action.value
       };
     }
+    case 'CLEAR_CART': {
+      return {
+        ...state,
+        cartItems: []
+      };
+    }
     default: {
-      throw new Error(`Unhandled action type: ${action.type}`);
+      throw new Error(`Unhandled action: ${action}`);
     }
   }
 }

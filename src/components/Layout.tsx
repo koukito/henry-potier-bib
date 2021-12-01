@@ -1,11 +1,12 @@
 import React from 'react';
-import { Heading } from 'theme-ui';
+import Container from 'react-bootstrap/Container';
+
 import { Navigation } from './Navigation';
 export const Layout = ({ children }: any) => {
   return (
-    <Heading>
+    <Container>
       <Navigation />
       {children}
-    </Heading>
+    </Container>
   );
 };

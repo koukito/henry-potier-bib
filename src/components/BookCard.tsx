@@ -1,5 +1,7 @@
 import React from 'react';
-import { Card, Image, Text, Flex, Button } from 'theme-ui';
+
+import { Button, Card } from 'react-bootstrap';
+
 import { Book } from '../models/books.models';
 
 interface BookCardProps {
@@ -7,40 +9,28 @@ interface BookCardProps {
   currency: string;
   action: () => void;
   actionString: string;
+  className: string;
 }
-const BookCard = ({ book, currency, action, actionString }: BookCardProps) => {
+const BookCard = ({
+  book,
+  currency,
+  action,
+  actionString,
+  className
+}: BookCardProps) => {
   return (
-    <Card
-      sx={{
-        maxWidth: 256
-      }}
-    >
-      <Image src={book.cover}></Image>
-      <Flex
-        sx={{
-          flexDirection: 'column'
-        }}
-      >
-        <Text
-          sx={{
-            fontSize: 4,
-            fontWeight: 'bold'
-          }}
-        >
-          {book.title}
-        </Text>
-        <Text
-          sx={{
-            fontSize: 3
-          }}
-        >
+    <Card style={{ width: '18rem' }} className={className}>
+      <Card.Img variant="top" src={book.cover} />
+      <Card.Body>
+        <Card.Title> {book.title}</Card.Title>
+        <Card.Text>
           {book.price}
           {currency}
-        </Text>
-        <Button mr={2} color="blue" onClick={action}>
+        </Card.Text>
+        <Button variant="primary" onClick={action}>
           {actionString}
         </Button>
-      </Flex>
+      </Card.Body>
     </Card>
   );
 };

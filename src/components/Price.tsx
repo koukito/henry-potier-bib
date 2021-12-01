@@ -1,8 +1,8 @@
-import { Box, Text, Flex } from '@theme-ui/components';
 import React from 'react';
 import calculateDiscountPrice from '../helpers/calculateDiscountPrice';
 import { Book, Offer } from '../models/books.models';
-
+import { Row, Col } from 'react-bootstrap';
+import './Price.scss';
 export interface PriceProps {
   offers: Array<Offer>;
   cartItems: Array<Book>;
@@ -25,13 +25,18 @@ const Price = ({ offers, cartItems }: PriceProps) => {
   const priceAfterDiscount = pricesAfterDiscount[0].priceAfterDiscount;
 
   return (
-    <Box>
-      <Text marginRight={10}>The Total price is</Text>
-      <Text marginRight={10} sx={{ textDecoration: 'line-through' }}>
-        {totalPriceBeforeDiscount}
-      </Text>
-      <Text>{priceAfterDiscount}</Text>
-    </Box>
+    <Row>
+      <Col sm={10}></Col>
+      <Col sm={2}>
+        <span className="price-string">
+          Total price
+          <span className="price__before-discount">
+            {totalPriceBeforeDiscount}€
+          </span>
+          {priceAfterDiscount}€
+        </span>
+      </Col>
+    </Row>
   );
 };
 export default Price;

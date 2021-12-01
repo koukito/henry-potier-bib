@@ -1,8 +1,8 @@
 import React from 'react';
 import { BookCard } from './BookCard';
 import { Book } from '../models/books.models';
-import { Grid } from 'theme-ui';
 import { useBookStore } from '../Context/BookStoreContext';
+import './Books.scss';
 export interface BooksPageContextModel {
   pageContext: {
     booksList: Array<Book>;
@@ -11,11 +11,14 @@ export interface BooksPageContextModel {
 }
 
 const Books = ({ pageContext }: BooksPageContextModel) => {
+  // Here we retrieve the booksList from the server side data(pageContext passed from gatsby-node), we can call a hook here
+  // to retrieve the bookslist again in case this data is changing frequently
   const { booksList, currency } = pageContext;
   const { dispatch, state } = useBookStore();
   return (
-    <article>
-      <Grid gap={4} columns={[4, null, 4]}>
+    <div>
+      <h1>Books</h1>
+      <article className="books__container">
         {booksList
           .filter((book) =>
             book.title.toLowerCase().includes(state.searchTerm.toLowerCase())
@@ -23,6 +26,7 @@ const Books = ({ pageContext }: BooksPageContextModel) => {
           .map((book: Book) => {
             return (
               <BookCard
+                className="book-card"
                 key={book.isbn}
                 book={book}
                 currency={currency}
@@ -31,8 +35,8 @@ const Books = ({ pageContext }: BooksPageContextModel) => {
               />
             );
           })}
-      </Grid>
-    </article>
+      </article>
+    </div>
   );
 };
 
