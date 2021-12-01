@@ -6,6 +6,7 @@ import { Offer } from '../models/books.models';
 
 axios.defaults.baseURL = 'https://henri-potier.techx.fr';
 
+// this hook can be refactored to be more generic
 const useCommercialOffers = (isbns: Array<string>) => {
   const [response, setResponse] = useState<Array<Offer>>(null);
   const [error, setError] = useState('');

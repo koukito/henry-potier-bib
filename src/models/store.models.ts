@@ -3,7 +3,8 @@ import { Book } from './books.models';
 export type Action =
   | { type: 'ADD_BOOK_CART'; value: Book }
   | { type: 'REMOVE_BOOK_CART'; value: string }
-  | { type: 'SET_SEARCH_TERM'; value: string };
+  | { type: 'SET_SEARCH_TERM'; value: string }
+  | { type: 'CLEAR_CART' };
 
 export type Dispatch = (action: Action) => void;
 
