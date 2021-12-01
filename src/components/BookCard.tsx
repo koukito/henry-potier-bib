@@ -4,12 +4,12 @@ import { Button, Card } from 'react-bootstrap';
 
 import { Book } from '../models/books.models';
 
-interface BookCardProps {
+export interface BookCardProps {
   book: Book;
   currency: string;
   action: () => void;
   actionString: string;
-  className: string;
+  className?: string;
 }
 const BookCard = ({
   book,
