@@ -1,14 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import { useBookStore } from '../Context/BookStoreContext';
-import {
-  Navbar,
-  Container,
-  Nav,
-  Button,
-  Form,
-  FormControl
-} from 'react-bootstrap';
+import { Navbar, Container, Nav, Form, FormControl } from 'react-bootstrap';
 import './Navigation.scss';
 
 export const Navigation = () => {
