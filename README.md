@@ -11,13 +11,13 @@
 
 1.  **Installer les dependences**
 
-Utiliser la version 14 de nodeJs
-```shell
+    Utiliser la version 14 de nodeJs
 
-       nvm use
+    ```shell
 
-       ```
+     nvm use
 
+    ```
 
 2.  **Démarrer l'application en mode developpement**
 
@@ -33,14 +33,10 @@ le site va se lancer sur http://localhost:8000
     en cliquant sur le panier vous pouvez naviguez vers la 2éme page http://localhost:8000/cart
 4.  vous pouvez démarrer l'application en mode prod:
 
-````shell
+    ```shell
 
-    npm run build
-    npm run serve
+     npm run build
+     npm run serve
     ```
-le site va se lancer sur http://localhost:9000 cette fois ci.
-````
 
-```
-
-```
+    le site va se lancer sur http://localhost:9000 cette fois ci.
