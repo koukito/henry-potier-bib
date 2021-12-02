@@ -7,7 +7,10 @@ const calculateDiscountPrice = (offer: Offer, priceBeforeDiscount: number) => {
     case 'minus':
       return priceBeforeDiscount - offer.value;
     case 'slice':
-      return priceBeforeDiscount - Math.floor(priceBeforeDiscount / 100) * 12;
+      return (
+        priceBeforeDiscount -
+        Math.floor(priceBeforeDiscount / offer.sliceValue) * offer.value
+      );
     default:
       return priceBeforeDiscount;
   }
