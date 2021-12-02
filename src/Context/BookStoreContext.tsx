@@ -18,7 +18,26 @@ const initalState: BooksStoreState = {
 function bookStoreReducer(state: BooksStoreState, action: Action) {
   switch (action.type) {
     case 'ADD_BOOK_CART': {
-      return { ...state, cartItems: [...state.cartItems, action.value] };
+      let found = state.cartItems.find(
+        (elem) => elem.isbn === action.value.isbn
+      )
+        ? true
+        : false;
+
+      const cartItems = found
+        ? [
+            ...state.cartItems.map((elem) => {
+              if (elem.isbn === action.value.isbn) {
+                return { ...elem, quantity: elem.quantity + 1 };
+              }
+              return elem;
+            })
+          ]
+        : [...state.cartItems, action.value];
+      return {
+        ...state,
+        cartItems: cartItems
+      };
     }
     case 'REMOVE_BOOK_CART': {
       return {
