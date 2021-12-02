@@ -13,15 +13,21 @@ exports[`Price renders correctly the right prices 1`] = `
     <span
       className="price-string"
     >
-      Total price
+      <h4>
+        Total price
+      </h4>
       <span
         className="price__before-discount"
       >
-        65
-        €
+        <h4>
+          65
+          €
+        </h4>
       </span>
-      50
-      €
+      <h4>
+        50
+        €
+      </h4>
     </span>
   </div>
 </div>
