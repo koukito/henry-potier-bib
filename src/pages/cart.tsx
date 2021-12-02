@@ -2,7 +2,6 @@ import Button from 'react-bootstrap/Button';
 import { Container, Alert, Spinner, Row, Col } from 'react-bootstrap';
 
 import React from 'react';
-import { BookCard } from '../components/BookCard';
 import { useBookStore } from '../Context/BookStoreContext';
 import useCommercialOffers from '../hooks/useCommercialOffers';
 import Price from '../components/Price';
@@ -20,9 +19,18 @@ const Cart = () => {
   const CartItemsHeader = () => {
     return (
       <Row className="cart-items-header">
-        <Col sm={8}>Product</Col>
-        <Col sm={2}>Price</Col>
-        <Col sm={2}>Total</Col>
+        <Col sm={6}>
+          <h3>Product</h3>
+        </Col>
+        <Col sm={2}>
+          <h3>Price</h3>
+        </Col>
+        <Col sm={2}>
+          <h3>Quantity</h3>
+        </Col>
+        <Col sm={2}>
+          <h3>Total</h3>
+        </Col>
       </Row>
     );
   };

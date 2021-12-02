@@ -12,4 +12,7 @@ const calculateDiscountPrice = (offer: Offer, priceBeforeDiscount: number) => {
       return priceBeforeDiscount;
   }
 };
-export default calculateDiscountPrice;
+const calculateQuantityPrice = (unitPrice: number, quantity: number) => {
+  return unitPrice * quantity;
+};
+export { calculateDiscountPrice, calculateQuantityPrice };
