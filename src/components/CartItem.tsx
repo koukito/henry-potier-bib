@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { calculateQuantityPrice } from '../helpers/calculatePrices';
 import { Book } from '../models/books.models';
 import './CartItem.scss';
 
@@ -14,7 +15,7 @@ const CartItem = ({ book, currency, action, actionString }: CartItemProps) => {
   return (
     <Container className="cart-item__container">
       <Row>
-        <Col>
+        <Col sm={3}>
           <Card.Img
             variant="top"
             src={book.cover}
@@ -22,7 +23,7 @@ const CartItem = ({ book, currency, action, actionString }: CartItemProps) => {
             width="200px"
           />
         </Col>
-        <Col>
+        <Col sm={3}>
           <Row>{book.title}</Row>
           <Row>
             <Col>
@@ -32,10 +33,12 @@ const CartItem = ({ book, currency, action, actionString }: CartItemProps) => {
             </Col>
           </Row>
         </Col>
-        <Col>
+        <Col sm={2}>
           {book.price}
           {currency}
         </Col>
+        <Col sm={2}>{book.quantity}</Col>
+        <Col sm={2}>{calculateQuantityPrice(book.price, book.quantity)}€</Col>
       </Row>
     </Container>
   );

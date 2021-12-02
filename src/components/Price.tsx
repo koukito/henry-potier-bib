@@ -1,5 +1,8 @@
 import React from 'react';
-import calculateDiscountPrice from '../helpers/calculateDiscountPrice';
+import {
+  calculateDiscountPrice,
+  calculateQuantityPrice
+} from '../helpers/calculatePrices';
 import { Book, Offer } from '../models/books.models';
 import { Row, Col } from 'react-bootstrap';
 import './Price.scss';
@@ -9,7 +12,7 @@ export interface PriceProps {
 }
 const Price = ({ offers, cartItems }: PriceProps) => {
   const totalPriceBeforeDiscount = cartItems
-    .map((book) => book.price)
+    .map((book) => calculateQuantityPrice(book.quantity, book.price))
     .reduce((prev, current) => {
       return prev + current;
     }, 0);
@@ -23,17 +26,16 @@ const Price = ({ offers, cartItems }: PriceProps) => {
     }))
     .sort((a, b) => (a.priceAfterDiscount > b.priceAfterDiscount ? 1 : -1));
   const priceAfterDiscount = pricesAfterDiscount[0].priceAfterDiscount;
-
   return (
     <Row>
       <Col sm={10}></Col>
       <Col sm={2}>
         <span className="price-string">
-          Total price
+          <h4>Total price</h4>
           <span className="price__before-discount">
-            {totalPriceBeforeDiscount}€
+            <h4>{totalPriceBeforeDiscount}€</h4>
           </span>
-          {priceAfterDiscount}€
+          <h4>{priceAfterDiscount}€</h4>
         </span>
       </Col>
     </Row>

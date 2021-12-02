@@ -4,6 +4,7 @@ export interface Book {
   price: number;
   cover: string;
   synopsis: Array<string>;
+  quantity?: number;
 }
 
 export interface Offer {

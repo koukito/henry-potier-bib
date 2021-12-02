@@ -2,6 +2,7 @@ import React from 'react';
 import { BookCard } from './BookCard';
 import { Book } from '../models/books.models';
 import { useBookStore } from '../Context/BookStoreContext';
+
 import './Books.scss';
 export interface BooksPageContextModel {
   pageContext: {
@@ -24,13 +25,19 @@ const Books = ({ pageContext }: BooksPageContextModel) => {
             book.title.toLowerCase().includes(state.searchTerm.toLowerCase())
           )
           .map((book: Book) => {
+            book.quantity = 1;
             return (
               <BookCard
                 className="book-card"
                 key={book.isbn}
                 book={book}
                 currency={currency}
-                action={() => dispatch({ type: 'ADD_BOOK_CART', value: book })}
+                action={() =>
+                  dispatch({
+                    type: 'ADD_BOOK_CART',
+                    value: book
+                  })
+                }
                 actionString={'Add to cart'}
               />
             );
