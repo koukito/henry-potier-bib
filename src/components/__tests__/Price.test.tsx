@@ -8,14 +8,16 @@ const mockBookData1 = {
   title: 'MockTitlte',
   synopsis: [],
   price: 35,
-  cover: ''
+  cover: '',
+  quantity: 1
 };
 const mockBookData2 = {
   isbn: 'mock2',
   title: 'MockTitlte',
   synopsis: [],
   price: 30,
-  cover: ''
+  cover: '',
+  quantity: 1
 };
 const mockCartItems = [mockBookData1, mockBookData2];
 const mockOffersData: Array<Offer> = [
