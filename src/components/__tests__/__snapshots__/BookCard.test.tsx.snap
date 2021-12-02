@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookCard renders correctly 1`] = `
+<div
+  className="card"
+  style={
+    Object {
+      "width": "18rem",
+    }
+  }
+>
+  <img
+    className="card-img-top"
+    src=""
+  />
+  <div
+    className="card-body"
+  >
+    <div
+      className="card-title h5"
+    >
+       
+      MockTitlte
+    </div>
+    <p
+      className="card-text"
+    >
+      11
+      €
+    </p>
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      mock action string
+    </button>
+  </div>
+</div>
+`;

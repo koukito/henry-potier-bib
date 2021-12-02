@@ -13,6 +13,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "test": "jest",
     "lint": "eslint . --cache --ext=js,jsx,ts,tsx"
   },
   "dependencies": {
@@ -33,18 +34,25 @@
     "ts-node": "^10.4.0"
   },
   "devDependencies": {
+    "@types/jest": "^27.0.3",
     "@types/node": "^16.11.11",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
     "@types/react-helmet": "^6.1.4",
+    "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.5.0",
+    "babel-jest": "^27.4.2",
+    "babel-preset-gatsby": "^2.3.0",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.1",
     "eslint-plugin-react": "^7.27.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.4.3",
+    "react-test-renderer": "^17.0.2",
     "typescript": "^4.5.2"
   }
 }

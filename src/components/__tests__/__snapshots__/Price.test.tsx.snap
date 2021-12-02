@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Price renders correctly the right prices 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-sm-10"
+  />
+  <div
+    className="col-sm-2"
+  >
+    <span
+      className="price-string"
+    >
+      Total price
+      <span
+        className="price__before-discount"
+      >
+        65
+        €
+      </span>
+      50
+      €
+    </span>
+  </div>
+</div>
+`;
